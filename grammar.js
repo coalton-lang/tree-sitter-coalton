@@ -22,7 +22,7 @@ module.exports = grammar({
                         $.symbol,
                         $.list),
     number: _ => token(num()),
-    string: $ => seq('"', /[^"\\]+/, '"'),
+    string: $ => seq('"', /[^"\\]*/, '"'),
 
     _symbol_qualified: $ =>
     prec(1, seq(field("package", alias(SYMBOL, $.symbol_package)),
